@@ -1,5 +1,11 @@
 {
   "params": {
-    "registryUrl": "https://registy.npmjs.com/"
+    "registryUrl": "https://registy.npmjs.com/",
+    "analytics": {
+      "userok": {
+        "piscosour": true
+      },
+      "uuid": "a11c4801-eab4-4b11-b211-fa074338f8a2"
+    }
   }
 }
