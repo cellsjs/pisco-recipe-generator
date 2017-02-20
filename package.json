@@ -3,8 +3,12 @@
   "version": "0.1.0",
   "description": "It is a scaffold to help developers to create a new recipe in Pisocosour",
   "main": "bin/pisco.js",
+  "bin": {
+    "cells-app-create": "bin/pisco.js"
+  },
   "scripts": {
-    "test": "mocha"
+    "deps": "npm install",
+    "test": "node_modules/.bin/mocha"
   },
   "repository": {
     "type": "git",
@@ -22,5 +26,15 @@
   "bugs": {
     "url": "https://github.com/cellsjs/pisco-recipe-create/issues"
   },
-  "homepage": "https://github.com/cellsjs/pisco-recipe-create#readme"
+  "homepage": "https://github.com/cellsjs/pisco-recipe-create#readme",
+  "dependencies": {
+    "piscosour": "^1.0.0-alpha.8",
+    "pisco-plugin-nunjucks": "^0.2.1"
+  },
+  "devDependencies": {
+    "chai": "*",
+    "chai-fs": "*",
+    "mocha": "*",
+    "rimraf": "*"
+  }
 }
