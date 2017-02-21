@@ -1,0 +1,5 @@
+{
+  "flowName": "foo-flow-name",
+  "flowDescription": "foo-flow-name description testing",
+  "flowSteps": "step-one, step-two, step-three"
+}

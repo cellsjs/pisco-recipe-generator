@@ -1,0 +1,25 @@
+{
+  "name": "add-flow",
+  "description": "Generator to add a new flow",
+  "contexts": [ "recipe" ],
+  "plugins": [
+    "nunjucks"
+  ],
+  "prompts": [ {
+    "type": "input",
+    "name": "flowName",
+    "required": true,
+    "message": "Name of the flow"
+  }, {
+    "type": "input",
+    "name": "flowDescription",
+    "required": true,
+    "message": "Description for the of the flow"
+  }, {
+    "type": "input",
+    "name": "flowSteps",
+    "required": true,
+    "message": "List of steps separated by commas",
+    "default": "step1, step2, step3"
+  } ]
+}

@@ -31,3 +31,4 @@ test-reports
 scullion.json
 
 test/test*
+test/recipe-context/flows

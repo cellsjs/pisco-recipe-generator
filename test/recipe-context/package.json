@@ -1,0 +1,28 @@
+{
+  "name": "recipe-context",
+  "version": "0.1.0",
+  "description": "recipe-context testing",
+  "main": "bin/pisco.js",
+  "bin": {
+    "foo-app": "bin/pisco.js"
+  },
+  "scripts": {
+    "deps": "npm install",
+    "test": "node_modules/.bin/mocha"
+  },
+  "keywords": [
+    "piscosour-recipe"
+  ],
+  "license": "ISC",
+  "preferGlobal": true,
+  "dependencies": {
+    "piscosour": "^1.0.0-alpha.8"
+  },
+  "devDependencies": {
+    "chai": "*",
+    "mocha": "*"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "{{ flowName }}",
+  "description": "{{ flowDescription }}",
+  "steps": {
+    {% set steps = flowSteps.split(',') %}
+    {% for step in steps %}"{{ step | trim }}": {}{% if not loop.last%},{%endif%}
+    {% endfor %}
+  }
+}

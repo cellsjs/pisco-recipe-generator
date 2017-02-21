@@ -8,7 +8,7 @@ const fs = require('fs');
 const chai = require('chai');
 const expect = chai.expect;
 
-describe('pisco-recipe-create tests', function() {
+describe('recipe::create validation', function() {
   this.timeout(5000);
   chai.use(require('chai-fs'));
 
@@ -17,7 +17,7 @@ describe('pisco-recipe-create tests', function() {
 
     rimraf(testFolder, {}, function() {
       fs.mkdir(testFolder, function() {
-        exec('node ../.. recipe::create --recipeCIFile none --paramsFile ../recipe-create.json', { cwd: testFolder }, function(error, stdout, stderr) {
+        exec('node ../.. recipe::create --recipeCIFile none --paramsFile ../params-recipe-create.json', { cwd: testFolder }, function(error, stdout, stderr) {
           expect(error).to.equal(null);
           expect(stderr).to.equal('');
           expect(stdout).contain('./         PISCOSOUR        ./', 'Piscosour image has not been logged in the console');
@@ -67,7 +67,7 @@ describe('pisco-recipe-create tests', function() {
 
     rimraf(testFolder, {}, function() {
       fs.mkdir(testFolder, function() {
-        exec('node ../.. recipe::create --recipeCIFile Jenkinsfile --paramsFile ../recipe-create.json', { cwd: testFolder }, function(error, stdout, stderr) {
+        exec('node ../.. recipe::create --recipeCIFile Jenkinsfile --paramsFile ../params-recipe-create.json', { cwd: testFolder }, function(error, stdout, stderr) {
           expect(error).to.equal(null);
           expect(stderr).to.equal('');
           expect(stdout).contain('./         PISCOSOUR        ./', 'Piscosour image has not been logged in the console');
@@ -87,7 +87,7 @@ describe('pisco-recipe-create tests', function() {
 
     rimraf(testFolder, {}, function() {
       fs.mkdir(testFolder, function() {
-        exec('node ../.. recipe::create --recipeCIFile .travis.yml --paramsFile ../recipe-create.json', { cwd: testFolder }, function(error, stdout, stderr) {
+        exec('node ../.. recipe::create --recipeCIFile .travis.yml --paramsFile ../params-recipe-create.json', { cwd: testFolder }, function(error, stdout, stderr) {
           expect(error).to.equal(null);
           expect(stderr).to.equal('');
           expect(stdout).contain('./         PISCOSOUR        ./', 'Piscosour image has not been logged in the console');
@@ -103,12 +103,12 @@ describe('pisco-recipe-create tests', function() {
   });
 
   it('Should \'recipe::create\' creates a right test', function(done) {
-    this.timeout(90000);
+    this.timeout(120000);
     let testFolder = 'test/test3';
 
     rimraf(testFolder, {}, function() {
       fs.mkdir(testFolder, function() {
-        exec('node ../.. recipe::create --b-recipeHasJenkinsfile --paramsFile ../recipe-create.json', { cwd: testFolder }, function(error, stdout, stderr) {
+        exec('node ../.. recipe::create --b-recipeHasJenkinsfile --paramsFile ../params-recipe-create.json', { cwd: testFolder }, function(error, stdout, stderr) {
           expect(`${testFolder}/foo-app-name/test`)
             .to.be.a.directory()
             .and.have.files([ 'index.js' ]);
@@ -121,6 +121,35 @@ describe('pisco-recipe-create tests', function() {
             expect(stdout2).to.match(/✓ Should .*weather.* works/);
             done();
           });
+        });
+      });
+    });
+  });
+});
+
+describe('recipe::add-flow validation', function() {
+  this.timeout(5000);
+  it.only('Should \'recipe::add-flow\' works', function(done) {
+    let testFolder = 'test/recipe-context';
+    rimraf(`${testFolder}/flows`, {}, function() {
+      fs.mkdir(testFolder, function() {
+        exec('node ../.. recipe::add-flow --paramsFile ../params-add-flow.json', { cwd: testFolder }, function(error, stdout, stderr) {
+          expect(`${testFolder}/flows/foo-flow-name`)
+            .to.be.a.directory()
+            .and.have.files(['config.json', 'info.md']);
+
+          expect(`${testFolder}/flows/foo-flow-name/config.json`)
+            .to.be.a.file()
+            .with.contents.that.match(/\"name\": \"foo-flow-name\"/)
+            .with.contents.that.match(/\"description\": \"foo-flow-name description testing\"/)
+            .with.contents.that.match(/(step-one)|(step-two)|(step-three)/);
+
+          expect(`${testFolder}/flows/foo-flow-name/info.md`)
+            .to.be.a.file()
+            .with.contents.that.match(/flow-name/)
+            .with.contents.that.match(/foo-flow-name description testing/);
+
+          done();
         });
       });
     });
