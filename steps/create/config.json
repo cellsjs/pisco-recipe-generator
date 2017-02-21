@@ -26,8 +26,18 @@
     "name": "recipeCmdName",
     "required": true,
     "message": "Recipe command line name"
+  }, {
+    "type": "list",
+    "name": "recipeCIFile",
+    "required": "true",
+    "message": "Recipe Continuous Integration File",
+    "choices": [
+      "none",
+      "Jenkinsfile",
+      ".travis.yml"
+    ],
+    "default": ".travis.yml"
   }],
   "recipeVersion": "0.1.0",
-  "recipeDefaultContext": "",
-  "recipeHasJenkinsfile": false
+  "recipeDefaultContext": ""
 }

@@ -17,7 +17,7 @@ describe('pisco-recipe-create tests', function() {
 
     rimraf(testFolder, {}, function() {
       fs.mkdir(testFolder, function() {
-        exec('node ../.. recipe::create --paramsFile ../recipe-create.json', { cwd: testFolder }, function(error, stdout, stderr) {
+        exec('node ../.. recipe::create --recipeCIFile none --paramsFile ../recipe-create.json', { cwd: testFolder }, function(error, stdout, stderr) {
           expect(error).to.equal(null);
           expect(stderr).to.equal('');
           expect(stdout).contain('./         PISCOSOUR        ./', 'Piscosour image has not been logged in the console');
@@ -28,7 +28,7 @@ describe('pisco-recipe-create tests', function() {
 
           expect(`${testFolder}/foo-app-name/`)
             .to.be.a.directory()
-            .and.not.have.files([ 'Jenkinsfile' ]);
+            .and.not.have.files(['Jenkinsfile', '.travis.yml']);
 
           expect(`${testFolder}/foo-app-name/package.json`)
             .to.be.a.file().with.json
@@ -67,7 +67,7 @@ describe('pisco-recipe-create tests', function() {
 
     rimraf(testFolder, {}, function() {
       fs.mkdir(testFolder, function() {
-        exec('node ../.. recipe::create --b-recipeHasJenkinsfile --paramsFile ../recipe-create.json', { cwd: testFolder }, function(error, stdout, stderr) {
+        exec('node ../.. recipe::create --recipeCIFile Jenkinsfile --paramsFile ../recipe-create.json', { cwd: testFolder }, function(error, stdout, stderr) {
           expect(error).to.equal(null);
           expect(stderr).to.equal('');
           expect(stdout).contain('./         PISCOSOUR        ./', 'Piscosour image has not been logged in the console');
@@ -75,6 +75,26 @@ describe('pisco-recipe-create tests', function() {
           expect(`${testFolder}/foo-app-name/`)
             .to.be.a.directory()
             .and.have.files(['package.json', 'piscosour.json', 'README.md', '.gitignore', 'Jenkinsfile']);
+
+          done();
+        });
+      });
+    });
+  });
+
+  it('Should \'recipe::create\' creates a .travis.yml', function(done) {
+    let testFolder = 'test/test2';
+
+    rimraf(testFolder, {}, function() {
+      fs.mkdir(testFolder, function() {
+        exec('node ../.. recipe::create --recipeCIFile .travis.yml --paramsFile ../recipe-create.json', { cwd: testFolder }, function(error, stdout, stderr) {
+          expect(error).to.equal(null);
+          expect(stderr).to.equal('');
+          expect(stdout).contain('./         PISCOSOUR        ./', 'Piscosour image has not been logged in the console');
+
+          expect(`${testFolder}/foo-app-name/`)
+            .to.be.a.directory()
+            .and.have.files(['package.json', 'piscosour.json', 'README.md', '.gitignore', '.travis.yml']);
 
           done();
         });

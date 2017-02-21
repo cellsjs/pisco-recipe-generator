@@ -15,8 +15,11 @@ module.exports = {
       )
       .then(() => {
         fs.renameSync(`${this.params.recipeName}/gitignore`, `${this.params.recipeName}/.gitignore`);
-        if (!this.params.recipeHasJenkinsfile) {
+        if (this.params.recipeCIFile !== 'Jenkinsfile') {
           fs.unlinkSync(`${this.params.recipeName}/Jenkinsfile`);
+        }
+        if (this.params.recipeCIFile !== '.travis.yml') {
+          fs.unlinkSync(`${this.params.recipeName}/.travis.yml`);
         }
       })
       .then(ok, ko);

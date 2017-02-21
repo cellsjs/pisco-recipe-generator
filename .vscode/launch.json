@@ -31,8 +31,10 @@
       "cwd": "${workspaceRoot}/test",
       "args": [
         "recipe::create",
-        "--paramsFile",
-        "recipe-create.json"
+        "--recipeCmdName", "foo-app",
+        "--recipeDescription", "foo-app-name testing",
+        "--recipeName", "foo-app-name",
+        "--recipeCIFile", "Jenkinsfile"
       ]
     }
   ]
