@@ -129,7 +129,7 @@ describe('recipe::create validation', function() {
 
 describe('recipe::add-flow validation', function() {
   this.timeout(5000);
-  it.only('Should \'recipe::add-flow\' works', function(done) {
+  it('Should \'recipe::add-flow\' works', function(done) {
     let testFolder = 'test/recipe-context';
     rimraf(`${testFolder}/flows`, {}, function() {
       fs.mkdir(testFolder, function() {
