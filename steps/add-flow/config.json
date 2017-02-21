@@ -14,7 +14,7 @@
     "type": "input",
     "name": "flowDescription",
     "required": true,
-    "message": "Description for the of the flow"
+    "message": "Description for the flow"
   }, {
     "type": "input",
     "name": "flowSteps",
