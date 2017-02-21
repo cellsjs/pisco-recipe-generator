@@ -1,0 +1,13 @@
+{
+  "name": "{{ stepName }}",
+  "description": "{{ stepDescription }}"{% if stepIsGenerator %},
+  "isGenerator": true{% endif %}{% if stepContexts %},
+  "contexts": [
+    {% for context in stepContexts.split(',') %}"{{ context | trim }}"{% if not loop.last %},
+    {% endif %}{% endfor %}
+  ]{% endif %}{% if stepPlugins %},
+  "plugins": [
+    {% for plugin in stepPlugins.split(',') %}"{{ plugin | trim }}"{% if not loop.last %},
+    {% endif %}{% endfor %}
+  ]{% endif %}
+}

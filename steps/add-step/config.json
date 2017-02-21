@@ -1,0 +1,35 @@
+{
+  "name": "add-step",
+  "description": "Generator to add a new step",
+  "contexts": [ "recipe" ],
+  "plugins": [
+    "nunjucks"
+  ],
+  "prompts": [ {
+    "type": "input",
+    "name": "stepName",
+    "required": true,
+    "message": "Name of the step"
+  }, {
+    "type": "input",
+    "name": "stepDescription",
+    "required": true,
+    "message": "Description for the step"
+  }, {
+    "type": "confirm",
+    "name": "stepIsGenerator",
+    "required": true,
+    "message": "Is a generator? (if the step creates the context)"
+  }, {
+    "type": "input",
+    "name": "stepContexts",
+    "required": true,
+    "message": "List of contexts separated by commas (recipe, app, component, ...)",
+    "default": "recipe"
+  }, {
+    "type": "input",
+    "name": "stepPlugins",
+    "required": false,
+    "message": "List of plugins separated by commas (plugin1, plugin2)"
+  } ]
+}

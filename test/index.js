@@ -139,7 +139,7 @@ describe('recipe::add-flow validation', function() {
             .and.have.files(['config.json', 'info.md']);
 
           expect(`${testFolder}/flows/foo-flow-name/config.json`)
-            .to.be.a.file()
+            .to.be.a.file().with.json
             .with.contents.that.match(/\"name\": \"foo-flow-name\"/)
             .with.contents.that.match(/\"description\": \"foo-flow-name description testing\"/)
             .with.contents.that.match(/(step-one)|(step-two)|(step-three)/);
@@ -148,6 +148,35 @@ describe('recipe::add-flow validation', function() {
             .to.be.a.file()
             .with.contents.that.match(/flow-name/)
             .with.contents.that.match(/foo-flow-name description testing/);
+
+          done();
+        });
+      });
+    });
+  });
+});
+
+describe('recipe::add-step validation', function() {
+  this.timeout(5000);
+  it('Should \'recipe::add-step\' works', function(done) {
+    let testFolder = 'test/recipe-context';
+    rimraf(`${testFolder}/steps`, {}, function() {
+      fs.mkdir(testFolder, function() {
+        exec('node ../.. recipe::add-step --paramsFile ../params-add-step.json', { cwd: testFolder }, function(error, stdout, stderr) {
+          expect(`${testFolder}/steps/foo-step-name`)
+            .to.be.a.directory()
+            .and.have.files(['config.json', 'info.md', 'index.js']);
+
+          expect(`${testFolder}/steps/foo-step-name/config.json`)
+            .to.be.a.file().with.json
+            .with.contents.that.match(/\"name\": \"foo-step-name\"/)
+            .with.contents.that.match(/\"description\": \"foo-step-name description testing\"/)
+            .with.contents.that.match(/(plugin-one)|(plugin-two)|(plugin-three)/);
+
+          expect(`${testFolder}/steps/foo-step-name/info.md`)
+            .to.be.a.file()
+            .with.contents.that.match(/step-name/)
+            .with.contents.that.match(/foo-step-name description testing/);
 
           done();
         });
