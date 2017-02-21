@@ -83,7 +83,7 @@ describe('recipe::create validation', function() {
   });
 
   it('Should \'recipe::create\' creates a .travis.yml', function(done) {
-    let testFolder = 'test/test2';
+    let testFolder = 'test/test3';
 
     rimraf(testFolder, {}, function() {
       fs.mkdir(testFolder, function() {
@@ -104,11 +104,11 @@ describe('recipe::create validation', function() {
 
   it('Should \'recipe::create\' creates a right test', function(done) {
     this.timeout(120000);
-    let testFolder = 'test/test3';
+    let testFolder = 'test/test4';
 
     rimraf(testFolder, {}, function() {
       fs.mkdir(testFolder, function() {
-        exec('node ../.. recipe::create --b-recipeHasJenkinsfile --paramsFile ../params-recipe-create.json', { cwd: testFolder }, function(error, stdout, stderr) {
+        exec('node ../.. recipe::create --recipeCIFile none --paramsFile ../params-recipe-create.json', { cwd: testFolder }, function(error, stdout, stderr) {
           expect(`${testFolder}/foo-app-name/test`)
             .to.be.a.directory()
             .and.have.files([ 'index.js' ]);
