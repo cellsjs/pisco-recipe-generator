@@ -1,7 +1,6 @@
 'use strict';
 
 /* global define, it, describe, before */
-//const chai = require('chai');
 const exec = require('child_process').exec;
 const rimraf = require('rimraf');
 const fs = require('fs');
@@ -121,64 +120,6 @@ describe('recipe::create validation', function() {
             expect(stdout2).to.match(/✓ Should .*weather.* works/);
             done();
           });
-        });
-      });
-    });
-  });
-});
-
-describe('recipe::add-flow validation', function() {
-  this.timeout(5000);
-  it('Should \'recipe::add-flow\' works', function(done) {
-    let testFolder = 'test/recipe-context';
-    rimraf(`${testFolder}/flows`, {}, function() {
-      fs.mkdir(testFolder, function() {
-        exec('node ../.. recipe::add-flow --paramsFile ../params-add-flow.json', { cwd: testFolder }, function(error, stdout, stderr) {
-          expect(`${testFolder}/flows/foo-flow-name`)
-            .to.be.a.directory()
-            .and.have.files(['config.json', 'info.md']);
-
-          expect(`${testFolder}/flows/foo-flow-name/config.json`)
-            .to.be.a.file().with.json
-            .with.contents.that.match(/\"name\": \"foo-flow-name\"/)
-            .with.contents.that.match(/\"description\": \"foo-flow-name description testing\"/)
-            .with.contents.that.match(/(step-one)|(step-two)|(step-three)/);
-
-          expect(`${testFolder}/flows/foo-flow-name/info.md`)
-            .to.be.a.file()
-            .with.contents.that.match(/flow-name/)
-            .with.contents.that.match(/foo-flow-name description testing/);
-
-          done();
-        });
-      });
-    });
-  });
-});
-
-describe('recipe::add-step validation', function() {
-  this.timeout(5000);
-  it('Should \'recipe::add-step\' works', function(done) {
-    let testFolder = 'test/recipe-context';
-    rimraf(`${testFolder}/steps`, {}, function() {
-      fs.mkdir(testFolder, function() {
-        exec('node ../.. recipe::add-step --paramsFile ../params-add-step.json', { cwd: testFolder }, function(error, stdout, stderr) {
-          expect(`${testFolder}/steps/foo-step-name`)
-            .to.be.a.directory()
-            .and.have.files(['config.json', 'info.md', 'index.js']);
-
-          expect(`${testFolder}/steps/foo-step-name/config.json`)
-            .to.be.a.file().with.json
-            .with.contents.that.match(/\"name\": \"foo-step-name\"/)
-            .with.contents.that.match(/\"description\": \"foo-step-name description testing\"/)
-            .with.contents.that.match(/(plugin-one)|(plugin-two)|(plugin-three)/);
-
-          expect(`${testFolder}/steps/foo-step-name/info.md`)
-            .to.be.a.file()
-            .with.contents.that.match(/step-name/)
-            .with.contents.that.match(/foo-step-name description testing/);
-
-          done();
         });
       });
     });
