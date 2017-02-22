@@ -14,7 +14,7 @@ describe('recipe::add-flow validation', function() {
     let testFolder = 'test/recipe-context/';
     rimraf(`${testFolder}/flows/foo-flow-name`, {}, function() {
       fs.mkdir(testFolder, function() {
-        exec('node ../.. recipe::add-flow --paramsFile ../params-add-flow.json', { cwd: testFolder }, function(error, stdout, stderr) {
+        exec('node ../.. recipe::add-flow --paramsFile ../step-add-flow-params/multiple-steps.json', { cwd: testFolder }, function(error, stdout, stderr) {
           expect(`${testFolder}/flows/foo-flow-name`)
             .to.be.a.directory()
             .and.have.files(['config.json', 'info.md']);
@@ -40,7 +40,7 @@ describe('recipe::add-flow validation', function() {
     let testFolder = 'test/recipe-context';
     rimraf(`${testFolder}/flows/foo-flow-name-one-step`, {}, function() {
       fs.mkdir(testFolder, function() {
-        exec('node ../.. recipe::add-flow --paramsFile ../params-add-flow-one-step.json', { cwd: testFolder }, function(error, stdout, stderr) {
+        exec('node ../.. recipe::add-flow --paramsFile ../step-add-flow-params/one-step.json', { cwd: testFolder }, function(error, stdout, stderr) {
           expect(`${testFolder}/flows/foo-flow-name-one-step`)
             .to.be.a.directory()
             .and.have.files(['config.json', 'info.md']);

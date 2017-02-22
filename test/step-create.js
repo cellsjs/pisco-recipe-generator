@@ -16,7 +16,7 @@ describe('recipe::create validation', function() {
 
     rimraf(testFolder, {}, function() {
       fs.mkdir(testFolder, function() {
-        exec('node ../.. recipe::create --recipeCIFile none --paramsFile ../params-recipe-create.json', { cwd: testFolder }, function(error, stdout, stderr) {
+        exec('node ../.. recipe::create --recipeCIFile none --paramsFile ../step-create-params/simple.json', { cwd: testFolder }, function(error, stdout, stderr) {
           expect(error).to.equal(null);
           expect(stderr).to.equal('');
           expect(stdout).contain('./         PISCOSOUR        ./', 'Piscosour image has not been logged in the console');
@@ -66,7 +66,7 @@ describe('recipe::create validation', function() {
 
     rimraf(testFolder, {}, function() {
       fs.mkdir(testFolder, function() {
-        exec('node ../.. recipe::create --recipeCIFile Jenkinsfile --paramsFile ../params-recipe-create.json', { cwd: testFolder }, function(error, stdout, stderr) {
+        exec('node ../.. recipe::create --recipeCIFile Jenkinsfile --paramsFile ../step-create-params/simple.json', { cwd: testFolder }, function(error, stdout, stderr) {
           expect(error).to.equal(null);
           expect(stderr).to.equal('');
           expect(stdout).contain('./         PISCOSOUR        ./', 'Piscosour image has not been logged in the console');
@@ -86,7 +86,7 @@ describe('recipe::create validation', function() {
 
     rimraf(testFolder, {}, function() {
       fs.mkdir(testFolder, function() {
-        exec('node ../.. recipe::create --recipeCIFile .travis.yml --paramsFile ../params-recipe-create.json', { cwd: testFolder }, function(error, stdout, stderr) {
+        exec('node ../.. recipe::create --recipeCIFile .travis.yml --paramsFile ../step-create-params/simple.json', { cwd: testFolder }, function(error, stdout, stderr) {
           expect(error).to.equal(null);
           expect(stderr).to.equal('');
           expect(stdout).contain('./         PISCOSOUR        ./', 'Piscosour image has not been logged in the console');
@@ -107,7 +107,7 @@ describe('recipe::create validation', function() {
 
     rimraf(testFolder, {}, function() {
       fs.mkdir(testFolder, function() {
-        exec('node ../.. recipe::create --recipeCIFile none --paramsFile ../params-recipe-create.json', { cwd: testFolder }, function(error, stdout, stderr) {
+        exec('node ../.. recipe::create --recipeCIFile none --paramsFile ../step-create-params/simple.json', { cwd: testFolder }, function(error, stdout, stderr) {
           expect(`${testFolder}/foo-app-name/test`)
             .to.be.a.directory()
             .and.have.files([ 'index.js' ]);

@@ -14,7 +14,7 @@ describe('recipe::add-step validation', function() {
     let testFolder = 'test/recipe-context';
     rimraf(`${testFolder}/steps/foo-step-name`, {}, function() {
       fs.mkdir(testFolder, function() {
-        exec('node ../.. recipe::add-step --paramsFile ../params-add-step.json', { cwd: testFolder }, function(error, stdout, stderr) {
+        exec('node ../.. recipe::add-step --paramsFile ../step-add-step-params/simple.json', { cwd: testFolder }, function(error, stdout, stderr) {
           expect(`${testFolder}/steps/foo-step-name`)
             .to.be.a.directory()
             .and.have.files(['config.json', 'info.md', 'index.js']);
@@ -42,7 +42,7 @@ describe('recipe::add-step validation', function() {
     let testFolder = 'test/recipe-context';
     rimraf(`${testFolder}/steps/foo-step-name-no-plugins`, {}, function() {
       fs.mkdir(testFolder, function() {
-        exec('node ../.. recipe::add-step --paramsFile ../params-add-step-no-plugins.json', { cwd: testFolder }, function(error, stdout, stderr) {
+        exec('node ../.. recipe::add-step --paramsFile ../step-add-step-params/no-plugins.json', { cwd: testFolder }, function(error, stdout, stderr) {
           expect(`${testFolder}/steps/foo-step-name-no-plugins`)
             .to.be.a.directory()
             .and.have.files(['config.json', 'info.md', 'index.js']);
@@ -65,7 +65,7 @@ describe('recipe::add-step validation', function() {
     let testFolder = 'test/recipe-context';
     rimraf(`${testFolder}/steps/foo-step-name-no-contexts`, {}, function() {
       fs.mkdir(testFolder, function() {
-        exec('node ../.. recipe::add-step --paramsFile ../params-add-step-no-contexts.json', { cwd: testFolder }, function(error, stdout, stderr) {
+        exec('node ../.. recipe::add-step --paramsFile ../step-add-step-params/no-contexts.json', { cwd: testFolder }, function(error, stdout, stderr) {
           expect(`${testFolder}/steps/foo-step-name-no-contexts`)
             .to.be.a.directory()
             .and.have.files(['config.json', 'info.md', 'index.js']);
@@ -89,7 +89,7 @@ describe('recipe::add-step validation', function() {
     let testFolder = 'test/recipe-context';
     rimraf(`${testFolder}/steps`, {}, function() {
       rimraf(`${testFolder}/test`, {}, function() {
-        exec('node ../.. recipe::add-step --paramsFile ../params-add-step-for-test.json', { cwd: testFolder }, function(error, stdout, stderr) {
+        exec('node ../.. recipe::add-step --paramsFile ../step-add-step-params/test-the-test.json', { cwd: testFolder }, function(error, stdout, stderr) {
           expect(`${testFolder}/steps/foo-step-name`)
             .to.be.a.directory()
             .and.have.files(['config.json', 'info.md', 'index.js']);
