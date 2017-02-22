@@ -11,5 +11,5 @@
 
     npm install -g pisco-recipe-generator
 
-Then `pisco-recipe-generator` command is available.
+Then `recipe-generator` command will be available.
 
