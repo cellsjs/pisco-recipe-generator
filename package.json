@@ -1,6 +1,6 @@
 {
   "name": "pisco-recipe-generator",
-  "version": "0.3.0-alpha.0",
+  "version": "0.3.0-beta.0",
   "description": "It is a scaffold to help developers to create a new recipe in Pisocosour",
   "main": "bin/pisco.js",
   "bin": {
@@ -20,7 +20,7 @@
     "scaffold",
     "recipe",
     "create",
-		"generator"
+    "generator"
   ],
   "author": "Cells Developers",
   "license": "Apache-2.0",
