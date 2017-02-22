@@ -83,4 +83,41 @@ describe('recipe::add-step validation', function() {
       });
     });
   });
+
+  it('Should \'recipe::add-step\' creates a right test', function(done) {
+    this.timeout(90000);
+    let testFolder = 'test/recipe-context';
+    rimraf(`${testFolder}/steps`, {}, function() {
+      rimraf(`${testFolder}/test`, {}, function() {
+        exec('node ../.. recipe::add-step --paramsFile ../params-add-step-for-test.json', { cwd: testFolder }, function(error, stdout, stderr) {
+          expect(`${testFolder}/steps/foo-step-name`)
+            .to.be.a.directory()
+            .and.have.files(['config.json', 'info.md', 'index.js']);
+
+          expect(`${testFolder}/steps/foo-step-name/config.json`)
+            .to.be.a.file().with.json
+            .with.contents.that.match(/\"name\": \"foo-step-name\"/)
+            .with.contents.that.match(/\"description\": \"foo-step-name description testing\"/);
+
+          expect(`${testFolder}/steps/foo-step-name/info.md`)
+            .to.be.a.file()
+            .with.contents.that.match(/step-name/)
+            .with.contents.that.match(/foo-step-name description testing/);
+
+          expect(`${testFolder}/test`)
+            .to.be.a.directory()
+            .and.have.files([ 'step-foo-step-name.js' ]);
+
+          expect(`${testFolder}/test/step-foo-step-name.js`)
+            .to.be.a.file()
+            .with.contents.that.match(/Generate piscosour foo-step-name tests/);
+
+          exec('npm install && npm test', { cwd: `${testFolder}/test/` }, function(error2, stdout2, stderr2) {
+            expect(stdout2).to.match(/✓ Should .*context-test::foo-step-name.* works/);
+            done();
+          });
+        });
+      });
+    });
+  });
 });

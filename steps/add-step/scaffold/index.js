@@ -6,11 +6,11 @@ module.exports = {
   },
 
   config: function() {
-    this.logger.info('#purple', 'Config the step to run');
+    this.logger.info('#yellow', 'Config the step to run');
   },
 
   run: function(ok, ko) {
-    this.sh('echo Run main execution of the step');
+    this.sh('echo Run main execution of the step', ko, true);
   },
 
   prove: function() {

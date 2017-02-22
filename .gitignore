@@ -33,3 +33,4 @@ scullion.json
 test/test*
 test/recipe-context/flows
 test/recipe-context/steps
+test/recipe-context/test

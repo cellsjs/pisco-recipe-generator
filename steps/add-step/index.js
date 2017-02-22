@@ -13,8 +13,18 @@ module.exports = {
       )
       .then(() => {
         fs.renameSync(`steps/${this.params.stepName}/config.json.njk`, `steps/${this.params.stepName}/config.json`);
+        this.njkRender(
+          './', //root where scaffold is created
+          path.join(__dirname, 'scaffold-with-test'), //from
+          'test', //to where scaffold is created
+          this.params //vars
+        )
+        .then(() => {
+          fs.renameSync('test/step-rename.js', `test/step-${this.params.stepName}.js`);
+        })
+        .then(ok, ko);
       })
-      .then(ok, ko);
+      .catch(ko);
 
     return p;
   }

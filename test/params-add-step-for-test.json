@@ -1,0 +1,7 @@
+{
+  "stepName": "foo-step-name",
+  "stepDescription": "foo-step-name description testing",
+  "stepIsGenerator": false,
+  "stepContexts": "context-test",
+  "stepPlugins": ""
+}
