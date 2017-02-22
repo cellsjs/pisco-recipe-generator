@@ -1,10 +1,10 @@
 {
-  "name": "pisco-recipe-create",
+  "name": "pisco-recipe-generator",
   "version": "0.3.0-alpha.0",
   "description": "It is a scaffold to help developers to create a new recipe in Pisocosour",
   "main": "bin/pisco.js",
   "bin": {
-    "cells-app-create": "bin/pisco.js"
+    "recipe-generator": "bin/pisco.js"
   },
   "scripts": {
     "deps": "npm install",
@@ -12,21 +12,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cellsjs/pisco-recipe-create.git"
+    "url": "git+https://github.com/cellsjs/pisco-recipe-generator.git"
   },
   "keywords": [
     "piscosour-recipe",
     "piscosour",
     "scaffold",
     "recipe",
-    "create"
+    "create",
+		"generator"
   ],
   "author": "Cells Developers",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/cellsjs/pisco-recipe-create/issues"
+    "url": "https://github.com/cellsjs/pisco-recipe-generator/issues"
   },
-  "homepage": "https://github.com/cellsjs/pisco-recipe-create#readme",
+  "homepage": "https://github.com/cellsjs/pisco-recipe-generator#readme",
   "dependencies": {
     "piscosour": "^1.0.0-alpha.8",
     "pisco-plugin-nunjucks": "^0.2.1"

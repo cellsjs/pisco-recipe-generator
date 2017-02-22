@@ -1,4 +1,4 @@
 {
-  "cmd": "pisco-recipe-create",
+  "cmd": "recipe-generator",
   "defaultContext": "recipe"
 }
