@@ -114,7 +114,7 @@ describe('recipe::create validation', function() {
 
           expect(`${testFolder}/foo-app-name/test/index.js`)
             .to.be.a.file()
-            .with.contents.that.match(/Generate piscosour foo-app-name tests/);
+            .with.contents.that.match(/recipe foo-app-name validation/);
 
           exec('npm install && npm test', { cwd: `${testFolder}/foo-app-name/test/` }, function(error2, stdout2, stderr2) {
             expect(stdout2).to.match(/✓ Should .*weather.* works/);

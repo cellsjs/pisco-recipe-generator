@@ -3,7 +3,7 @@
 const assert = require('chai').assert;
 const exec = require('child_process').exec;
 
-describe('Generate piscosour {{ recipeName }} tests', function() {
+describe('recipe {{ recipeName }} validation', function() {
   this.timeout(5000);
   it('Should \'recipe::weather\' works', (done) => {
     exec('node .. recipe::weather', { cwd: 'test' }, (error, stdout, stderr) => {

@@ -3,7 +3,7 @@
 const expect = require('chai').expect;
 const exec = require('child_process').exec;
 
-describe('Generate piscosour {{ stepName }} tests', function() {
+describe('::{{ stepName }} validation', function() {
   this.timeout(5000);
   it('Should \'::{{ stepName }}\' works', (done) => {
     exec('node .. ::{{ stepName }}', { cwd: 'test' }, (error, stdout, stderr) => {

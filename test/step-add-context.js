@@ -5,7 +5,7 @@ const exec = require('child_process').exec;
 const rimraf = require('rimraf');
 const fs = require('fs');
 
-describe('Generate piscosour add-context tests', function() {
+describe('recipe::add-context validation', function() {
   this.timeout(5000);
   it('Should \'recipe::add-context\' works', (done) => {
     let testFolder = 'test/recipe-context/';

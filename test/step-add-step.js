@@ -110,7 +110,7 @@ describe('recipe::add-step validation', function() {
 
           expect(`${testFolder}/test/step-foo-step-name.js`)
             .to.be.a.file()
-            .with.contents.that.match(/Generate piscosour foo-step-name tests/);
+            .with.contents.that.match(/::foo-step-name validation/);
 
           exec('npm install && npm test', { cwd: `${testFolder}/test/` }, function(error2, stdout2, stderr2) {
             expect(stdout2).to.match(/✓ Should .*::foo-step-name.* works/);
