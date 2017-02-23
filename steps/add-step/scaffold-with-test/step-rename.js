@@ -5,8 +5,8 @@ const exec = require('child_process').exec;
 
 describe('Generate piscosour {{ stepName }} tests', function() {
   this.timeout(5000);
-  it('Should \'context-test::{{ stepName }}\' works', (done) => {
-    exec('node .. context-test::{{ stepName }}', { cwd: 'test' }, (error, stdout, stderr) => {
+  it('Should \'::{{ stepName }}\' works', (done) => {
+    exec('node .. ::{{ stepName }}', { cwd: 'test' }, (error, stdout, stderr) => {
       expect(error).to.equal(null);
       expect(stderr).to.equal('');
       expect(stdout).contain('Run main execution of the step');

@@ -64,6 +64,18 @@
         "--stepContexts", "context1",
         "--stepPlugins", "plugin1"
       ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "recipe::add-context",
+      "program": "${workspaceRoot}/bin/pisco.js",
+      "cwd": "${workspaceRoot}/test/recipe-context",
+      "args": [
+        "recipe::add-context",
+        "--contextDescription", "foo-app-name testing",
+        "--contextName", "foo-app-name-test"
+      ]
     }
   ]
 }

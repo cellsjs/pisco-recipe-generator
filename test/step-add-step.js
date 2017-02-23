@@ -113,7 +113,7 @@ describe('recipe::add-step validation', function() {
             .with.contents.that.match(/Generate piscosour foo-step-name tests/);
 
           exec('npm install && npm test', { cwd: `${testFolder}/test/` }, function(error2, stdout2, stderr2) {
-            expect(stdout2).to.match(/✓ Should .*context-test::foo-step-name.* works/);
+            expect(stdout2).to.match(/✓ Should .*::foo-step-name.* works/);
             done();
           });
         });

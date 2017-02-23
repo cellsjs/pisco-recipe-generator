@@ -1,4 +1,7 @@
 {
   "cmd": "recipe-generator",
-  "defaultContext": "recipe"
+  "defaultContext": "recipe",
+  "plugins": [
+    "fs"
+  ]
 }

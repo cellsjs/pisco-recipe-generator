@@ -1,0 +1,22 @@
+{
+  "name": "add-context",
+  "description": "Generator to add a new context",
+  "isGenerator": true,
+  "contexts": [
+    "recipe"
+  ],
+  "plugins": [
+    "nunjucks"
+  ],
+  "prompts": [ {
+    "type": "input",
+    "name": "contextName",
+    "required": true,
+    "message": "Name of the context"
+  }, {
+    "type": "input",
+    "name": "contextDescription",
+    "required": true,
+    "message": "Description for the context"
+  } ]
+}
