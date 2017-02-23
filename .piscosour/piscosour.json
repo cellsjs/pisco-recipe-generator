@@ -1,6 +1,6 @@
 {
   "params": {
-    "registryUrl": "https://registry.npmjs.com",
+    "registryUrl": "https://registry.npmjs.org",
     "analytics": {
       "userok": {
         "piscosour": true
