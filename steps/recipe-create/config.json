@@ -1,0 +1,43 @@
+{
+  "name": "recipe-create",
+  "contexts": [
+    "recipe"
+  ],
+  "isGenerator": true,
+  "plugins": [
+    "nunjucks",
+    "logPiscoImage"
+  ],
+  "description": "Create a recipe scaffold",
+  "prompts": [{
+    "type": "input",
+    "name": "recipeName",
+    "required": true,
+    "message": "Recipe name",
+    "default": "your-recipe-name"
+  }, {
+    "type": "input",
+    "name": "recipeDescription",
+    "required": true,
+    "message": "Recipe description",
+    "default": ""
+  }, {
+    "type": "input",
+    "name": "recipeCmdName",
+    "required": true,
+    "message": "Recipe command line name"
+  }, {
+    "type": "list",
+    "name": "recipeCIFile",
+    "required": "true",
+    "message": "Recipe Continuous Integration File",
+    "choices": [
+      "none",
+      "Jenkinsfile",
+      ".travis.yml"
+    ],
+    "default": ".travis.yml"
+  }],
+  "recipeVersion": "0.1.0",
+  "recipeDefaultContext": ""
+}
