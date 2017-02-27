@@ -1,3 +1,0 @@
-# Piscosour Recipe {{ recipeName }}
-
-{{ recipeDescription }}

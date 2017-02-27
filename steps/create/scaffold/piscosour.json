@@ -1,4 +1,0 @@
-{
-  "cmd" : "{{ recipeCmdName }}",
-  "defaultContext": "{{ recipeDefaultContext }}"
-}
