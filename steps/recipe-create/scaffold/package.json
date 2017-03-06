@@ -13,10 +13,10 @@
   "keywords": [
     "piscosour-recipe"
   ],
-  "license": "ISC",
+  "license": "Apache Licence",
   "preferGlobal": true,
   "dependencies": {
-    "piscosour": "^1.0.0-alpha.8"
+    "piscosour": "^1.0.0"
   },
   "devDependencies": {
     "chai": "*",

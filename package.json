@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/cellsjs/pisco-recipe-generator#readme",
   "dependencies": {
-    "piscosour": "^1.0.0-alpha.8",
+    "piscosour": "^1.0.0",
     "pisco-plugin-nunjucks": "^0.2.1"
   },
   "devDependencies": {
