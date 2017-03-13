@@ -45,6 +45,7 @@ describe('recipe::add-flow validation', function() {
         .to.be.a.file().with.json
         .with.contents.that.match(/\"name\": \"foo-flow-name-one-step\"/)
         .with.contents.that.match(/\"description\": \"foo-flow-name description testing\"/)
+        .with.contents.that.match(/\"isGenerator\": true/)
         .with.not.contents.that.match(/(step-one)|(step-two)|(step-three)/);
 
       expect(`${testFolder}/flows/foo-flow-name-one-step/info.md`)

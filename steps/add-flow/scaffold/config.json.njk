@@ -1,6 +1,7 @@
 {
   "name": "{{ flowName }}",
-  "description": "{{ flowDescription }}",
+  "description": "{{ flowDescription }}"{% if flowIsGenerator %},
+  "isGenerator": true{% endif %},
   "steps": {
     {% for step in flowSteps.split(',') %}"{{ step | trim }}": {}{% if not loop.last %},
     {% endif %}{% endfor %}

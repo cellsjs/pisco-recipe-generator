@@ -1,5 +1,6 @@
 {
   "flowName": "foo-flow-name-one-step",
   "flowDescription": "foo-flow-name description testing",
+  "flowIsGenerator": true,
   "flowSteps": "step-renamed"
 }
