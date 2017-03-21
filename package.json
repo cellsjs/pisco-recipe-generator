@@ -1,6 +1,6 @@
 {
   "name": "pisco-recipe-generator",
-  "version": "0.6.0-alpha.1",
+  "version": "0.6.0-beta.1",
   "description": "It is a scaffold to help developers to create a new recipe in Pisocosour",
   "main": "bin/pisco.js",
   "bin": {
@@ -28,7 +28,9 @@
     "url": "https://github.com/cellsjs/pisco-recipe-generator/issues"
   },
   "homepage": "https://github.com/cellsjs/pisco-recipe-generator#readme",
-  "engines": { "node": ">=4.0.0" },
+  "engines": {
+    "node": ">=4.0.0"
+  },
   "dependencies": {
     "piscosour": "^1.0.0",
     "pisco-plugin-nunjucks": "^0.2.1"
