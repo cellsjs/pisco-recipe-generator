@@ -28,6 +28,9 @@
     "url": "https://github.com/cellsjs/pisco-recipe-generator/issues"
   },
   "homepage": "https://github.com/cellsjs/pisco-recipe-generator#readme",
+  "engines": {
+    "node": ">=4.0.0"
+  },
   "dependencies": {
     "piscosour": "^1.0.0",
     "pisco-plugin-nunjucks": "^0.2.1"
