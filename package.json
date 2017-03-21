@@ -1,6 +1,6 @@
 {
   "name": "pisco-recipe-generator",
-  "version": "0.7.0-aam.0",
+  "version": "0.7.0-beta.1",
   "description": "It is a scaffold to help developers to create a new recipe in Pisocosour",
   "main": "bin/pisco.js",
   "bin": {
