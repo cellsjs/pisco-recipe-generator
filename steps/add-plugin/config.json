@@ -1,0 +1,22 @@
+{
+  "name": "add-plugin",
+  "description": "Generator to add a new plugin",
+  "isGenerator": true,
+  "contexts": [
+    "recipe"
+  ],
+  "plugins": [
+    "nunjucks"
+  ],
+  "prompts": [ {
+    "type": "input",
+    "name": "pluginName",
+    "required": true,
+    "message": "Name of the plugin"
+  }, {
+    "type": "input",
+    "name": "pluginDescription",
+    "required": true,
+    "message": "Description for the plugin"
+  } ]
+}
