@@ -37,7 +37,14 @@ describe('recipe::add-plugin validation', function() {
       expect(`${testFolder}/plugins/foo-plugin-name/info.md`)
         .to.be.a.file()
         .with.contents.that.match(/plugin-name/)
-        .with.contents.that.match(/foo-plugin-name description testing/);
+        .with.contents.that.match(/foo-plugin-name description testing/)
+        .with.contents.that.match(/check\(\) hook/)
+        .with.contents.that.match(/config\(\) hook/)
+        .with.contents.that.match(/run\(\) hook/)
+        .with.contents.that.match(/prove\(\) hook/)
+        .with.contents.that.match(/notify\(\) hook/)
+        .with.contents.that.match(/emit\(\) hook/)
+        .with.contents.that.match(/testAddon\(\) addon/);
 
       done();
     });
