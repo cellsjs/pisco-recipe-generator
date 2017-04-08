@@ -39,8 +39,7 @@ describe('recipe::recipe-create validation', function() {
 
       expect(`${testFolder}/foo-app-name/piscosour.json`)
         .to.be.a.file().with.json
-        .with.contents.that.match(/\"cmd\" : \"foo-app\"/)
-        .with.contents.that.match(/\"defaultContext\": \"\"/);
+        .with.contents.that.match(/\"cmd\" : \"foo-app\"/);
 
       expect(`${testFolder}/foo-app-name/README.md`)
         .to.be.a.file()
