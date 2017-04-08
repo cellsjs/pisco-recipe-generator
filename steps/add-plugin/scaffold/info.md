@@ -30,7 +30,7 @@ This shows a message like this.
 Configuring....
 ```
 
-## <a name="run"></a>run
+## <a name="run"></a>run() hook
 
 Run the step.
 
@@ -40,7 +40,7 @@ This shows a message like this.
 Running....
 ```
 
-## <a name="prove"></a>prove
+## <a name="prove"></a>prove() hook
 
 Check if the step has run ok.
 
@@ -50,7 +50,7 @@ This shows a message like this.
 Proving....
 ```
 
-## <a name="notify"></a>notify
+## <a name="notify"></a>notify() hook
 
 Notify the end of the shot to someone or something.
 
@@ -60,7 +60,7 @@ This shows a message like this.
 Notifying....
 ```
 
-## <a name="emit"></a>emit
+## <a name="emit"></a>emit() hook
 
 Emit the result of the step to other steps. Allow communication between steps.
 
